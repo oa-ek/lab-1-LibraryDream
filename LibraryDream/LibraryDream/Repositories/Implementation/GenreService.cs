@@ -1,5 +1,4 @@
-﻿using LibraryDream.Data;
-using LibraryDream.Models.Domain;
+﻿using LibraryDream.Models.Domain;
 using LibraryDream.Repositories.Abstract;
 
 namespace LibraryDream.Repositories.Implementation
