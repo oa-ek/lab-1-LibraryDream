@@ -15,9 +15,8 @@ namespace LibraryDream.Models.Domain
         [Required]
         public int TotalPages { get; set; }
 
-        [Required]
-        public int AuthorId { get; set; }
-        [Required]
-        public int GenreId { get; set; }
+        public virtual IEnumerable<Genre> Genres { get; set; }
+        public virtual Author Author { get; set; }
+
     }
 }
