@@ -1,6 +1,6 @@
 ﻿namespace LibraryDream.Models.Domain
 {
-    public class Author
+    public class Book
     {
     }
 }
