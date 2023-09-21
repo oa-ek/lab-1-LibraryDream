@@ -1,6 +1,7 @@
 ﻿using LibraryDream.Models.Domain;
 using LibraryDream.Repositories.Abstract;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Metadata.Ecma335;
 
 namespace LibraryDream.Controllers
 {
@@ -32,8 +33,6 @@ namespace LibraryDream.Controllers
             TempData["msg"] = "Error has occured on server side";
             return View(model);
         }
-
-
         public IActionResult Update(int id)
         {
             var record = service.FindById(id);
@@ -50,26 +49,25 @@ namespace LibraryDream.Controllers
             var result = service.Update(model);
             if (result)
             {
-                return RedirectToAction("GetAll");
+                TempData["msg"] = "Added Successfully";
+                return RedirectToAction(nameof(Add));
             }
             TempData["msg"] = "Error has occured on server side";
             return View(model);
         }
 
 
+
         public IActionResult Delete(int id)
         {
-
             var result = service.Delete(id);
             return RedirectToAction("GetAll");
         }
 
         public IActionResult GetAll()
         {
-
             var data = service.GetAll();
             return View(data);
         }
-
     }
 }

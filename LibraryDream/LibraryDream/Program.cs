@@ -1,4 +1,6 @@
 using LibraryDream.Models.Domain;
+using LibraryDream.Repositories.Abstract;
+using LibraryDream.Repositories.Implementation;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -10,7 +12,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
 
-
+builder.Services.AddScoped<IGenreService, GenreService>();
 
 var app = builder.Build();
 
